@@ -1,0 +1,7 @@
+controllers:
+    resource: ../../src/Modules/Survey/UI/API
+    type: annotation
+
+kernel:
+    resource: ../../src/SharedKernel/Infrastructure/Symfony/Kernel.php
+    type: annotation

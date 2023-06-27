@@ -1,0 +1,32 @@
+framework:
+    messenger:
+        failure_transport: failed
+        default_bus: query_bus
+        buses:
+            command_bus:
+                middleware:
+                    - dispatch_after_current_bus
+                    - doctrine_transaction
+            event_bus:
+                default_middleware: allow_no_handlers
+                middleware:
+                    - dispatch_after_current_bus
+            query_bus:
+                middleware:
+                    - dispatch_after_current_bus
+        transports:
+            async_commands:
+                dsn: 'doctrine://default?queue_name=async_commands&auto_setup=0'
+            async_events:
+                dsn: 'doctrine://default?queue_name=async_events&auto_setup=0'
+            failed:
+                dsn: 'doctrine://default?queue_name=failed'
+            sync:
+                dsn: 'sync://'
+
+        routing:
+            'App\SharedKernel\Domain\Bus\Command': sync
+            'App\SharedKernel\Domain\Bus\Event': sync
+            'App\SharedKernel\Domain\Bus\Query': sync
+            'App\SharedKernel\Domain\Bus\AsyncCommand': async_commands
+            'App\SharedKernel\Domain\Bus\AsyncEvent': async_events

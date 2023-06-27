@@ -1,0 +1,14 @@
+imports:
+    - { resource: ../src/SharedKernel/Config/services.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/Modules/Domain/Entity/'
+            - '../src/SharedKernel/Infrastructure/Symfony/Kernel.php'
+

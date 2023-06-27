@@ -1,0 +1,19 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  App\SharedKernel\Domain\Bus\CommandBus:
+    class: App\SharedKernel\Infrastructure\Bus\MessengerCommandBus
+    arguments:
+      - '@command_bus'
+
+  App\SharedKernel\Domain\Bus\QueryBus:
+    class: App\SharedKernel\Infrastructure\Bus\MessengerQueryBus
+    arguments:
+      - '@query_bus'
+
+  App\SharedKernel\Domain\Bus\EventBus:
+    class: App\SharedKernel\Infrastructure\Bus\MessengerEventBus
+    arguments:
+      - '@event_bus'
