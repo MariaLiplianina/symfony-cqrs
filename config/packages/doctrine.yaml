@@ -15,6 +15,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Modules/Survey/Domain/Entity'
                 prefix: 'App\Modules\Survey\Domain\Entity'
                 alias: Survey
+            OutboxEvent:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Shared/Domain/Entity'
+                prefix: 'App\Shared\Domain\Entity'
+                alias: OutboxEvent
 
 when@test:
     doctrine:

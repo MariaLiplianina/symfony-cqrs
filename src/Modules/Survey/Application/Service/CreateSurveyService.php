@@ -7,7 +7,7 @@ namespace App\Modules\Survey\Application\Service;
 use App\Modules\Survey\Application\Command\UseCase\Survey\CreateSurvey\CreateSurveyCommand;
 use App\Modules\Survey\Application\Command\UseCase\Survey\CreateSurvey\CreateSurveyCommandInput;
 use App\Modules\Survey\Domain\Entity\Survey;
-use App\Shared\Exception\ValidationFailedException;
+use App\Shared\Application\Exception\ValidationFailedException;
 use App\SharedKernel\Domain\Bus\CommandBus;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
