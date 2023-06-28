@@ -7,7 +7,7 @@ namespace App\Modules\Survey\UI\API\Controller\Survey;
 use App\Modules\Survey\Application\Command\UseCase\Survey\CreateSurvey\CreateSurveyCommandInput;
 use App\Modules\Survey\Application\Service\CreateSurveyService;
 use App\Modules\Survey\UI\API\BaseController;
-use App\Shared\Application\Exception\ValidationFailedException;
+use App\Shared\Domain\Exception\ValidationFailedException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

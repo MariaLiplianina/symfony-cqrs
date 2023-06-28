@@ -6,7 +6,7 @@ namespace App\Modules\Survey\Application\Service;
 
 use App\Modules\Survey\Application\Command\UseCase\Survey\DeleteSurvey\DeleteSurveyCommand;
 use App\Modules\Survey\Domain\Entity\Survey;
-use App\Shared\Application\Exception\ValidationFailedException;
+use App\Shared\Domain\Exception\ValidationFailedException;
 use App\SharedKernel\Domain\Bus\CommandBus;
 
 class DeleteSurveyService

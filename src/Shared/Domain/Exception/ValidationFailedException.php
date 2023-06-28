@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Application\Exception;
+namespace App\Shared\Domain\Exception;
 
 use Symfony\Component\Validator\ConstraintViolationList;
 

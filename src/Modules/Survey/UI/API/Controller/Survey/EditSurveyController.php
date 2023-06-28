@@ -8,7 +8,7 @@ use App\Modules\Survey\Application\Command\UseCase\Survey\EditSurvey\EditSurveyC
 use App\Modules\Survey\Application\Service\EditSurveyService;
 use App\Modules\Survey\Domain\Entity\Survey;
 use App\Modules\Survey\UI\API\BaseController;
-use App\Shared\Application\Exception\ValidationFailedException;
+use App\Shared\Domain\Exception\ValidationFailedException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

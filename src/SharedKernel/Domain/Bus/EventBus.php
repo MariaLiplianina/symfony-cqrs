@@ -6,5 +6,5 @@ namespace App\SharedKernel\Domain\Bus;
 
 interface EventBus
 {
-    public function dispatch(Event|AsyncEvent $event): void;
+    public function dispatch(Event|AsyncEvent $event, bool $dispatchAfterCurrentBus = false): void;
 }

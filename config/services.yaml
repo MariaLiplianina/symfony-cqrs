@@ -10,6 +10,5 @@ services:
         resource: '../src/'
         exclude:
             - '../src/Modules/Domain/Entity/'
-            - '../src/Shared/Domain/Entity/'
             - '../src/SharedKernel/Infrastructure/Symfony/Kernel.php'
 

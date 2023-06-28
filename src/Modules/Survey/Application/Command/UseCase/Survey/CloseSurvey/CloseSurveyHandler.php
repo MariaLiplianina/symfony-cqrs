@@ -7,14 +7,14 @@ namespace App\Modules\Survey\Application\Command\UseCase\Survey\CloseSurvey;
 use App\Modules\Survey\Domain\Entity\Survey;
 use App\Modules\Survey\Domain\Event\SurveyClosedEvent;
 use App\Modules\Survey\Infrastructure\Repository\SurveyRepository;
-use App\Shared\Application\OutboxEventService;
+use App\SharedKernel\Domain\Bus\EventBus;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 class CloseSurveyHandler implements MessageHandlerInterface
 {
     public function __construct(
         private readonly SurveyRepository   $surveyRepository,
-        private readonly OutboxEventService $outboxEventService,
+        private readonly EventBus $eventBus,
     ) {
     }
 
@@ -23,7 +23,10 @@ class CloseSurveyHandler implements MessageHandlerInterface
         $survey = $this->surveyRepository->find($command->getSurveyId());
         $survey->close();
 
-        $this->outboxEventService->create(new SurveyClosedEvent($command->getSurveyId()));
+        $this->eventBus->dispatch(
+            new SurveyClosedEvent($command->getSurveyId()),
+            true
+        );
 
         return $survey;
     }
