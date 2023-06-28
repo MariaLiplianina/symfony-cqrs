@@ -9,8 +9,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class AnswerSurveyCommandInput implements Command
 {
-    #[Assert\NotBlank]
-    #[Assert\Range(min: -2, max: 2)]
+    #[Assert\NotBlank(groups: ['positive', 'negative'])]
+    #[Assert\Range(
+        min: -2,
+        max: 2,
+        groups: ['positive', 'negative'],
+    )]
     private int $quality;
 
     #[Assert\Blank(groups: ['positive'])]
